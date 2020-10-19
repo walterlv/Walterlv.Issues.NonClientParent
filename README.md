@@ -24,6 +24,8 @@ This bug is reported here: https://github.com/dotnet/wpf/issues/3666
 
 You'll see that if there is a child window inside, the top-right corner button does not respond to the mouse.
 
+![](image/Walterlv.Issues.NonClientParent.gif)
+
 ## Analysis
 
 If we hook the parent window, we'll see that the parent window receives no messages while the mouse is moving over the non-client area. But if the child window is released, the `NCHITTEST` message comes back again.
