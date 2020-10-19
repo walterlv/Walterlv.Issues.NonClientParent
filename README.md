@@ -1,5 +1,7 @@
 # Buttons are not hittest visible in non-client area
 
+This bug is reported here: https://github.com/dotnet/wpf/issues/3666
+
 ## Requirements
 
 1. Windows 10 20H2 Insiders Preview
@@ -24,4 +26,4 @@ You'll see that if there is a child window inside, the top-right corner button d
 
 ## Analysis
 
-If we hook the parent window, we'll see that the parent window receives no messages while the mouse is moving over the non-client area. But is the child window is released, the `NCHITTEST` message comes back again.
+If we hook the parent window, we'll see that the parent window receives no messages while the mouse is moving over the non-client area. But if the child window is released, the `NCHITTEST` message comes back again.
